@@ -2,29 +2,11 @@
 <html lang="hu">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bravior The Game</title>
-
-  <!-- Manifest PWA -->
-  <link rel="manifest" href="manifest.json" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <link rel="apple-touch-icon" href="icon-192.png" />
-  <meta name="theme-color" content="#111111" />
-
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body, html {
-      height: 100%;
-      overflow: hidden;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-      background: #111;
-      color: #fff;
-      -webkit-tap-highlight-color: transparent;
-      -webkit-user-select: none;
-      user-select: none;
-    }
+    body, html { height: 100%; overflow: hidden; font-family: sans-serif; background: #111; color: #fff; }
     .slide {
       display: none;
       height: 100vh;
@@ -33,39 +15,27 @@
       align-items: center;
       flex-direction: column;
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 2rem;
     }
     .slide.active { display: flex; }
-    h1, h2, p {
-      margin: 1rem 0;
-      font-size: calc(16px + 1vw);
-      line-height: 1.3;
-    }
+    h1, h2, p { margin: 1rem 0; }
     .controls {
-      position: fixed;
+      position: absolute;
       bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 10;
     }
     button {
       background: #444;
       color: white;
       border: none;
-      padding: 14px 24px;
+      padding: 10px 20px;
       margin: 0 10px;
-      font-size: 1.1rem;
+      font-size: 1rem;
       cursor: pointer;
-      border-radius: 10px;
-      touch-action: manipulation;
-      user-select: none;
-      transition: background-color 0.3s ease;
-      min-width: 90px;
+      border-radius: 5px;
     }
-    button:hover, button:focus {
-      background: #666;
-      outline: none;
-    }
+    button:hover { background: #666; }
     .images {
       display: flex;
       gap: 1rem;
@@ -74,18 +44,28 @@
       justify-content: center;
     }
     .images img {
-      max-width: 22vw;
+      max-width: 22%;
       height: auto;
       border: 2px solid #fff;
       border-radius: 10px;
-      touch-action: manipulation;
-      user-select: none;
     }
     .play-btn {
+      display: inline-block;
       margin-top: 1rem;
       background-color: #28a745;
-      min-width: 140px;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 10px;
+      text-decoration: none;
       font-weight: 600;
+      font-size: 1.1rem;
+      user-select: none;
+      cursor: pointer;
+      text-align: center;
+    }
+    .play-btn:hover, .play-btn:focus {
+      background-color: #218838;
+      outline: none;
     }
     #start-screen {
       position: fixed;
@@ -98,29 +78,9 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      padding: 1rem;
-      text-align: center;
     }
     audio {
       display: none;
-    }
-
-    /* Mobil optimalizálás */
-    @media (max-width: 600px) {
-      .images img {
-        max-width: 40vw;
-      }
-      button {
-        padding: 16px 28px;
-        font-size: 1.2rem;
-        min-width: 100px;
-      }
-      .controls {
-        bottom: 15px;
-      }
-      .slide {
-        padding: 1rem;
-      }
     }
   </style>
 </head>
@@ -151,7 +111,7 @@
       <img src="gyuri1.png" alt="Gyuri kép 1" />
       <img src="gyuri2.png" alt="Gyuri kép 2" />
     </div>
-    <a class="play-btn" href="data/1/index.html"><button>Play</button></a>
+    <a class="play-btn" href="data/1/index.html">Play</a>
   </section>
 
   <section class="slide">
@@ -162,7 +122,7 @@
       <img src="aron1.png" alt="Áron kép 1" />
       <img src="aron2.png" alt="Áron kép 2" />
     </div>
-    <a class="play-btn" href="data/2/index.html"><button>Play</button></a>
+    <a class="play-btn" href="data/2/index.html">Play</a>
   </section>
 
   <section class="slide">
@@ -173,7 +133,7 @@
       <img src="bendi1.png" alt="Bendi kép 1" />
       <img src="bendi2.png" alt="Bendi kép 2" />
     </div>
-    <a class="play-btn" href="data/3/index.html"><button>Play</button></a>
+    <a class="play-btn" href="data/3/index.html">Play</a>
   </section>
 
   <section class="slide">
@@ -184,7 +144,7 @@
       <img src="bence1.png" alt="Bence kép 1" />
       <img src="bence2.png" alt="Bence kép 2" />
     </div>
-    <a class="play-btn" href="data/4/index.html"><button>Play</button></a>
+    <a class="play-btn" href="data/4/index.html">Play</a>
   </section>
 
   <section class="slide">
@@ -195,7 +155,7 @@
       <img src="nandi1.png" alt="Nándi kép 1" />
       <img src="nandi2.png" alt="Nándi kép 2" />
     </div>
-    <a class="play-btn" href="data/5/index.html"><button>Play</button></a>
+    <a class="play-btn" href="data/5/index.html">Play</a>
   </section>
 
   <section class="slide">
@@ -206,7 +166,7 @@
       <img src="simon1.png" alt="Simon kép 1" />
       <img src="simon2.png" alt="Simon kép 2" />
     </div>
-    <a class="play-btn" href="data/6/index.html"><button>Play</button></a>
+    <a class="play-btn" href="data/6/index.html">Play</a>
   </section>
 
   <div class="controls" id="nav-controls">
@@ -229,18 +189,21 @@
 
       const navControls = document.getElementById('nav-controls');
 
+      // Intro slide (index 0) esetén elrejtjük az egész navigációt
       if (index === 0) {
         navControls.style.display = 'none';
       } else {
         navControls.style.display = 'block';
       }
 
+      // Előző gomb elrejtése Gyurinál (index 1)
       if (index === 1) {
         prevBtn.style.display = 'none';
       } else {
         prevBtn.style.display = 'inline-block';
       }
 
+      // Következő gomb elrejtése Simonnál (utolsó slide)
       if (index === slides.length - 1) {
         nextBtn.style.display = 'none';
       } else {
@@ -264,9 +227,7 @@
 
     function startPresentation() {
       startScreen.style.display = 'none';
-      audio.play().catch(() => {
-        // Ha automatikus lejátszás nem engedélyezett, várunk interakcióra
-      });
+      audio.play();
       showSlide(current);
     }
 
@@ -275,6 +236,7 @@
       if (e.key === 'ArrowLeft') prevSlide();
     });
 
+    // Ha az oldal nem látható (elhagyják, vagy átváltanak másik fülre), leállítjuk a zenét
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) {
         audio.pause();
